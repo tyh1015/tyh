@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 li {
@@ -10,4 +11,47 @@ li {
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+img {
+  display: block;
+}
+
+html {
+  font-size: calc(100vw / 375 * 10);
+}
+
+.iconfont {
+  font-size: 2rem!important;
+}
+
+@mixin wh($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex($flex, $jc, $ai) {
+  display: $flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+body {
+  font-family: 'dengxian';
+  font-size: 1.4rem;
+  background-color: white;
+}
+
+html,
+body {
+  @include wh(100%, 100%);
+}
+
+.index-Page,
+.detail-Page,
+.search-Page {
+  @include wh(100%, 100%);
+  @include flex(flex, flex-start, flex-start);
+  flex-direction: column;
 }
