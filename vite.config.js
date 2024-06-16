@@ -16,7 +16,7 @@ export default defineConfig({
       '@': join(__dirname, 'src')
     }
   },
-  base: 'test_app',
+  base: 'tyh',
   // 打包相关配置
   build: {
     // 出口目录
