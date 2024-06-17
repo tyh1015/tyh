@@ -101,6 +101,7 @@ section {
 
       img {
         @include wh(100%, 18.4rem);
+        pointer-events: none;
       }
 
       .des {
@@ -115,6 +116,7 @@ section {
         /* 显示的行数 */
         overflow: hidden;
         text-overflow: ellipsis;
+        pointer-events: none;
       }
 
       .price {
@@ -122,9 +124,11 @@ section {
         @include flex(flex, space-between, center);
         padding: 1rem;
         margin-bottom: 1rem;
+        pointer-events: none;
 
         b {
           color: red;
+          pointer-events: none;
         }
       }
     }

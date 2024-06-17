@@ -80,8 +80,6 @@ gets('.goods-Gird li').forEach((li, index) => {
       localStorage.setItem('milk', JSON.stringify(singleArr));
       console.log(detailArr);
     }
-
-
   })
 });
 
@@ -96,7 +94,7 @@ function getData() {
       // 渲染 ol
       $('.goods-Gird').innerHTML = data.map((item, index) => {
         return `
-        <li data-zh="${index}">
+        <li data-zh="${item.item_id}">
           <img src="${item.img}" alt="">
           <p class="des">${item.title}</p>
           <p class="price">
@@ -109,6 +107,7 @@ function getData() {
     }
   }
   xhr.send();
+  console.log(data);
 }
 // 获取数据 -> 继而初始化 销量 渲染
 function getSold() {
@@ -120,7 +119,7 @@ function getSold() {
       // 渲染 ol
       $('.goods-Gird').innerHTML = data.map((item, index) => {
         return `
-        <li data-xl="${index}">
+        <li data-xl="${item.item_id}">
           <img src="${item.img}" alt="">
           <p class="des">${item.title}</p>
           <p class="price">
@@ -133,6 +132,7 @@ function getSold() {
     }
   }
   xhr.send();
+  console.log(data);
 }
 // 获取数据 -> 继而初始化 上新 渲染
 function getNew() {
@@ -144,7 +144,7 @@ function getNew() {
       // 渲染 ol
       $('.goods-Gird').innerHTML = data.map((item, index) => {
         return `
-        <li data-sx="${index}">
+        <li data-sx="${item.item_id}">
           <img src="${item.img}" alt="">
           <p class="des">${item.title}</p>
           <p class="price">
@@ -157,6 +157,7 @@ function getNew() {
     }
   }
   xhr.send();
+  console.log(data);
 }
 
 // 渲染函数
