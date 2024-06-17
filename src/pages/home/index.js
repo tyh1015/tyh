@@ -1,6 +1,7 @@
 import '../../common/common.scss';
 import '../../font/iconfont.css';
 import './home.scss';
+import axios from 'axios';
 
 console.log('首页');
 // 1 初始化渲染
@@ -67,20 +68,39 @@ document.addEventListener('click', e => {
 })
 
 // 3 点击商品进入详情
-gets('.goods-Gird li').forEach((li, index) => {
-  li.addEventListener('click', e => {
-    let target = e.target;
-    if (target.nodeName === 'LI') {
-      // location.href = './detail.html';
-      // 获取li元素的自定义属性值
-      let id = target.getAttribute('data-zh');
-      console.log(id);
-      let detailArr = data[id];
-      const singleArr = [...new Set(detailArr)];
-      localStorage.setItem('milk', JSON.stringify(singleArr));
-      console.log(detailArr);
-    }
-  })
+$('.goods-Gird').addEventListener('click', async e => {
+  let target = e.target;
+
+    location.href = './detail.html';
+    // 获取li元素的自定义属性值
+    let id1 = target.getAttribute('data-id1');
+    let id2 = target.getAttribute('data-id2');
+    let id3 = target.getAttribute('data-id3');
+    // console.log(id);
+    const res1 = await axios.get('https://zyxcl.xyz/exam_api/zh');
+    const res2 = await axios.get('https://zyxcl.xyz/exam_api/xl');
+    const res3 = await axios.get('https://zyxcl.xyz/exam_api/sx');
+    // con
+    // console.log(res);
+    res1.data.items.forEach(obj => {
+      if (id1 == obj.item_id) {
+        localStorage.setItem('data', JSON.stringify(obj));
+      }
+    });
+    res2.data.items.forEach(obj => {
+      if (id2 == obj.item_id) {
+        localStorage.setItem('data', JSON.stringify(obj));
+      }
+    });
+    res3.data.items.forEach(obj => {
+      if (id3 == obj.item_id) {
+        localStorage.setItem('data', JSON.stringify(obj));
+      }
+    });
+    // let detailArr = data[id];
+    // const singleArr = [...new Set(detailArr)];
+
+    // console.log(detailArr);
 });
 
 // 0 封装函数
@@ -94,7 +114,7 @@ function getData() {
       // 渲染 ol
       $('.goods-Gird').innerHTML = data.map((item, index) => {
         return `
-        <li data-zh="${item.item_id}">
+        <li data-id1="${item.item_id}">
           <img src="${item.img}" alt="">
           <p class="des">${item.title}</p>
           <p class="price">
@@ -107,7 +127,7 @@ function getData() {
     }
   }
   xhr.send();
-  console.log(data);
+  // console.log(data);
 }
 // 获取数据 -> 继而初始化 销量 渲染
 function getSold() {
@@ -119,7 +139,7 @@ function getSold() {
       // 渲染 ol
       $('.goods-Gird').innerHTML = data.map((item, index) => {
         return `
-        <li data-xl="${item.item_id}">
+        <li data-id2="${item.item_id}">
           <img src="${item.img}" alt="">
           <p class="des">${item.title}</p>
           <p class="price">
@@ -144,7 +164,7 @@ function getNew() {
       // 渲染 ol
       $('.goods-Gird').innerHTML = data.map((item, index) => {
         return `
-        <li data-sx="${item.item_id}">
+        <li data-id3="${item.item_id}">
           <img src="${item.img}" alt="">
           <p class="des">${item.title}</p>
           <p class="price">
