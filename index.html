@@ -15,65 +15,53 @@
       <!-- 头部 - 顶部 -->
       <div class="header-Top">
         <i class="iconfont icon-shangdian"></i>
-        <p>搜索</p>
+        <input type="search" placeholder="搜索" class="search">
         <i class="iconfont icon-fenlei"></i>
       </div>
       <!-- 头部 - 导航 -->
       <div class="header-Nav">
         <ul>
-          <li>综合</li>
-          <li>销量</li>
-          <li>上新</li>
-          <li>价格</li>
+          <li class="zh active">综合</li>
+          <li class="xl">销量</li>
+          <li class="sx">上新</li>
+          <li class="jg">价格<i class="iconfont icon-jiageshang up"></i><i class="iconfont icon-jiagexia down"></i></li>
         </ul>
         <!-- 排列方式 -->
-        <i class="iconfont icon-qiehuanliebiao1"></i>
+        <i class="iconfont icon-qiehuanliebiao1 arrangement"></i>
       </div>
     </header>
     <!-- 主体 -->
     <section>
-      <ol>
-        <li>
+      <!-- 网格布局 -->
+      <ol class="goods-Gird">
+        <!-- <li>
           <img src="./src/assets/image.png" alt="">
           <span class="des">描述</span>
           <p class="price">
             <b>￥144</b>
             <span>月销398笔</span>
           </p>
-        </li>
-        <li>
-          <img src="./src/assets/image.png" alt="">
-          <span class="des">描述</span>
-          <p class="price">
-            <b>￥144</b>
-            <span>月销398笔</span>
-          </p>
-        </li>
-        <li>
-          <img src="./src/assets/image.png" alt="">
-          <span class="des">描述</span>
-          <p class="price">
-            <b>￥144</b>
-            <span>月销398笔</span>
-          </p>
-        </li>
-        <li>
-          <img src="./src/assets/image.png" alt="">
-          <span class="des">描述</span>
-          <p class="price">
-            <b>￥144</b>
-            <span>月销398笔</span>
-          </p>
-        </li>
-        <li>
-          <img src="./src/assets/image.png" alt="">
-          <span class="des">描述</span>
-          <p class="price">
-            <b>￥144</b>
-            <span>月销398笔</span>
-          </p>
-        </li>
+        </li> -->
       </ol>
+      <!-- 列表布局 -->
+      <ul class="goods-List">
+        <li>
+          <img src="./src/assets/image.png" alt="">
+          <div class="con">
+            <p>描述</p>
+            <span>月销398笔</span>
+            <b>￥144</b>
+          </div>
+        </li>
+        <li>
+          <img src="./src/assets/image.png" alt="">
+          <div class="con">
+            <p>描述</p>
+            <span>月销398笔</span>
+            <b>￥144</b>
+          </div>
+        </li>
+      </ul>
     </section>
   </div>
   <script type="module" src="./src/pages/home/index.js"></script>
